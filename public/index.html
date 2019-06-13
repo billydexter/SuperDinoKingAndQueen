@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <title>Money Simulator</title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="title">
+      <h1>See a dino if you log in!</h1>
+    </div>
+  </div>
+  <div id="app" class="content">
+    <div v-if = "loggedIn">
+        <h1>RAWR!!!!</h1>
+        <img src= "./images/T-rex.jpg">
+        <button @click="returnToLogin">Return to Login Screen</button>
+    </div>
+    <div v-else = "notLoggedIn">
+      <h2>Login</h2>
+      <input v-model="username" placeholder="Username">
+      <input v-model="password" placeholder="Password">
+      <button @click="attemptLogin">Login</button>
+      <h3>{{message}}</h3>
+      <h2>Sign up</h2>
+      <input v-model="regiUsername" placeholder="Username">
+      <input v-model="regiPassword" placeholder="Password">
+      <button @click="attemptRegister">Register</button>
+      <h3>{{regiMessage}}</h3>
+      <h2>Delete a User</h2>
+      <input v-model="deleUsername" placeholder="Username">
+      <input v-model="delePassword" placeholder="Password">
+      <button @click="attemptDelete">Delete User</button>
+      <h3>{{deleMessage}}</h3>
+      <h2>Change Password</h2>
+      <input v-model="editUsername" placeholder="Username">
+      <input v-model="editPassword" placeholder="Old Password">
+      <input v-model="newPassword" placeholder="New Password">
+      <button @click="attemptEdit">Change Password</button>
+      <h3>{{editMessage}}</h3>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/moment"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>
